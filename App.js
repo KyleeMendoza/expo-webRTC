@@ -5,6 +5,7 @@ import {
   StatusBar,
   StyleSheet,
   View,
+  Text,
 } from "react-native";
 import { mediaDevices, RTCView } from "react-native-webrtc";
 
@@ -37,6 +38,7 @@ function App() {
       <StatusBar barStyle="dark-content" />
       <View style={{ flex: 1 }}>
         {stream && <RTCView streamURL={stream.toURL()} style={{ flex: 1 }} />}
+        <Text>Hello World</Text>
       </View>
       <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
         <Button title="Start" onPress={start} />

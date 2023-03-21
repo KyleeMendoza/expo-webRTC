@@ -26,7 +26,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 // import VideoOn from "./asset/VideoOn";
 // import VideoOff from "./asset/VideoOff";
 // import CameraSwitch from "./asset/CameraSwitch";
-// import IconContainer from "./components/IconContainer";
+import IconContainer from "./components/IconContainer";
 import InCallManager from "react-native-incall-manager";
 
 export default function App({}) {
@@ -41,7 +41,7 @@ export default function App({}) {
   );
   const otherUserId = useRef(null);
 
-  const socket = SocketIOClient("http://192.168.100.75:8081", {
+  const socket = SocketIOClient("http://192.168.100.75:3500", {
     transports: ["websocket"],
     query: {
       callerId,
@@ -435,7 +435,7 @@ export default function App({}) {
             }}
           >
             <Text>
-              <Icon name={"checkmark"} size={50} color={"white"} />
+              <Icon name={"check"} size={50} color={"white"} />
             </Text>
           </TouchableOpacity>
         </View>
@@ -512,7 +512,7 @@ export default function App({}) {
             Icon={() => {
               return (
                 <Text>
-                  <Ionic name={"close"} size={50} color={"white"} />
+                  <Icon name={"close"} size={50} color={"white"} />
                 </Text>
               );
             }}

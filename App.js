@@ -18,14 +18,15 @@ import {
   RTCIceCandidate,
   RTCSessionDescription,
 } from "react-native-webrtc";
-import CallEnd from "./asset/CallEnd";
-import CallAnswer from "./asset/CallAnswer";
-import MicOn from "./asset/MicOn";
-import MicOff from "./asset/MicOff";
-import VideoOn from "./asset/VideoOn";
-import VideoOff from "./asset/VideoOff";
-import CameraSwitch from "./asset/CameraSwitch";
-import IconContainer from "./components/IconContainer";
+import Icon from "react-native-vector-icons/MaterialIcons";
+// import CallEnd from "./asset/CallEnd";
+// import CallAnswer from "./asset/CallAnswer";
+// import MicOn from "./asset/MicOn";
+// import MicOff from "./asset/MicOff";
+// import VideoOn from "./asset/VideoOn";
+// import VideoOff from "./asset/VideoOff";
+// import CameraSwitch from "./asset/CameraSwitch";
+// import IconContainer from "./components/IconContainer";
 import InCallManager from "react-native-incall-manager";
 
 export default function App({}) {
@@ -377,7 +378,9 @@ export default function App({}) {
               alignItems: "center",
             }}
           >
-            <CallEnd width={50} height={12} />
+            <Text>
+              <Icon name={"close"} size={50} color={"white"} />
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -431,7 +434,9 @@ export default function App({}) {
               alignItems: "center",
             }}
           >
-            <CallAnswer height={28} fill={"#fff"} />
+            <Text>
+              <Icon name={"checkmark"} size={50} color={"white"} />
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -505,7 +510,11 @@ export default function App({}) {
               leave();
             }}
             Icon={() => {
-              return <CallEnd height={26} width={26} fill="#FFF" />;
+              return (
+                <Text>
+                  <Ionic name={"close"} size={50} color={"white"} />
+                </Text>
+              );
             }}
           />
           <IconContainer
@@ -518,10 +527,15 @@ export default function App({}) {
               toggleMic();
             }}
             Icon={() => {
-              return localMicOn ? (
-                <MicOn height={24} width={24} fill="#FFF" />
-              ) : (
-                <MicOff height={28} width={28} fill="#1D2939" />
+              return (
+                <Text>
+                  <Icon
+                    name={localMicOn ? "mic" : "mic-off"}
+                    size={35}
+                    color={"white"}
+                  />
+                  ;
+                </Text>
               );
             }}
           />
@@ -535,10 +549,15 @@ export default function App({}) {
               toggleCamera();
             }}
             Icon={() => {
-              return localWebcamOn ? (
-                <VideoOn height={24} width={24} fill="#FFF" />
-              ) : (
-                <VideoOff height={36} width={36} fill="#1D2939" />
+              return (
+                <Text>
+                  <Icon
+                    name={localWebcamOn ? "videocam" : "videocam-off"}
+                    size={35}
+                    color={"white"}
+                  />
+                  ;
+                </Text>
               );
             }}
           />
@@ -552,7 +571,11 @@ export default function App({}) {
               switchCamera();
             }}
             Icon={() => {
-              return <CameraSwitch height={24} width={24} fill="#FFF" />;
+              return (
+                <Text>
+                  <Icon name={"flip-camera-ios"} size={35} color={"white"} />;
+                </Text>
+              );
             }}
           />
         </View>
